@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AbeneTech - መግቢያ ጽገ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .button {
+            transition: transform 0.2s, background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            background-color: #2563eb; /* Tailwind blue-600 */
+            color: white;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
+        }
+
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.5);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #d8cccc;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #000;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-decoration-color: black;
+        }
+
+        .close {
+            cursor: pointer;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-blue-400 to-cyan-400 flex items-center justify-center min-h-screen text-black text-center">
+
+    <div class="absolute top-5 left-1/2 transform -translate-x-1/2 bg-white text-blue-500 rounded-full py-2 px-6 shadow-lg">
+        <h2 class="text-lg font-semibold">እንኳን ወደ ትምህርት መሰረት በሰላም መጣችሁ</h2>
+    </div>
+
+    <div class="bg-black bg-opacity-70 p-10 rounded-lg shadow-2xl w-96 transition-transform transform hover:scale-105">
+        <h1 class="text-4xl font-extrabold mb-6">Welcome to AbeneTech</h1>
+        <p class="mb-4">አገልግሎት ለማኘት ከ ስር ይመዝገቡ።</p>
+        <div class="space-y-4">
+            <button onclick="location.href='about.html'" 
+                class="button w-full bg-white text-blue-500 py-3 px-6 rounded-lg text-lg font-semibold hover:shadow-lg">
+                ስለ AbeneTech
+            </button>
+            <button onclick="location.href='sign.html'" 
+                class="button w-full bg-white text-blue-500 py-3 px-6 rounded-lg text-lg font-semibold hover:shadow-lg">
+                ይመዝገቡ
+            </button>
+            <button onclick="openModal()" 
+                class="button w-full bg-white text-blue-500 py-3 px-6 rounded-lg text-lg font-semibold hover:shadow-lg">
+                አስተያየት ይስጡ
+            </button>
+        </div>
+        <p class="mt-6 text-lg italic">አላማችን ጎብዞ ማጎበዝ ነው።</p>
+        <footer class="mt-4 text-sm opacity-75">
+            <p>© 2025 AbeneTech | All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal()" class="close">&times;</span>
+            <h2 class="text-lg font-semibold">አስተያየት ይስጡ</h2>
+            <form>
+                <label for="name" class="block text-gray-700">ስም:</label>
+                <input type="text" id="name" class="w-full p-2 mb-4 border rounded" required>
+
+                <label for="message" class="block text-gray-700">መልእክት:</label>
+                <textarea id="message" class="w-full p-2 mb-4 border rounded" required></textarea>
+
+                <button type="submit" class="button w-full bg-blue-600 text-white py-2 rounded-lg">ላክ</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

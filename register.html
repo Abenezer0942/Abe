@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>የትምህርት-አገልግሎት</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: #333;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: #0077cc;
+            color: white;
+            padding: 20px;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 700px;
+            width: 90%;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h2 {
+            color: #0077cc;
+            margin-bottom: 15px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #0077cc;
+            background: white;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s ease-in-out;
+        }
+
+        select:hover {
+            background: #f0f8ff;
+        }
+
+        .books {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        ul li {
+            background: #ffcc00;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease-in-out;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul li:hover {
+            background: #e6b800;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #0077cc;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    የትምህርት መጻሕፍት
+</header>
+
+<main>
+    <h2>የክፍል ደረጃ ይምረጡ</h2>
+    <select id="grade-select">
+        <option value="">ክፍል ይምረጡ</option>
+        <option value="1">Grade 1</option>
+        <option value="2">Grade 2</option>
+        <option value="3">Grade 3</option>
+        <option value="4">Grade 4</option>
+        <option value="5">Grade 5</option>
+        <option value="6">Grade 6</option>
+        <option value="7">Grade 7</option>
+        <option value="8">Grade 8</option>
+    </select>
+
+    <div class="books" id="books">
+        <h3>የመጻሕፍት ዝርዝር</h3>
+        <ul id="book-list"></ul>
+        
+        <h3>ጥያቄዎች አይነቶች</h3>
+        <ul id="question-type"></ul>
+    </div>
+</main>
+
+<footer>
+    <p>Source: <a href="https://fetena.net" target="_blank">fetena.net</a></p>
+</footer>
+
+<script>
+    document.getElementById('grade-select').addEventListener('change', function() {
+        let grade = this.value;
+        let bookList = document.getElementById('book-list');
+        let questionType = document.getElementById('question-type');
+        let booksSection = document.getElementById('books');
+
+        if (grade) {
+            bookList.innerHTML = `<li><a href="https://fetena.net" target="_blank">የ${grade}ኛ ክፍል መጻሕፍት</a></li>`;
+            questionType.innerHTML = `<li><a href="https://fetena.net" target="_blank">የ${grade}ኛ ክፍል ጥያቄ</a></li>`;
+            booksSection.style.display = "block";
+            booksSection.style.animation = "fadeIn 0.5s ease-in-out";
+        } else {
+            booksSection.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>

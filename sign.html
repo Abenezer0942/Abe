@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ይመዝገቡ - AbeneTech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0077cc, #005fa3);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        main {
+            max-width: 400px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            transform: scale(1.05);
+        }
+
+        button {
+            padding: 12px;
+            background: #ffcc00;
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #ffaa00;
+            transform: scale(1.05);
+        }
+
+        .message {
+            display: none;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #00ff99;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: underline;
+        }
+    </style>
+ </button>
+</head>
+<body>
+
+<header>
+    <h1>በነጻ ይመዝገቡ</h1>
+</header>
+
+<main>
+    <h2>የልጆች መረጃ ያስገቡ</h2>
+    <form id="signup-form">
+        <input type="text" id="firstName" placeholder="ስም" required>
+        <input type="text" id="fatherName" placeholder="የአባት ስም" required>
+        <input type="text" id="grandFatherName" placeholder="የአያት ስም" required>
+        <input type="text" id="place" placeholder="ሰፈር" required>
+        <input type="number" id="age" placeholder="እድሜ" required min="1">
+        <input type="tel" id="phone" placeholder="ስልክ" required>
+        <button type="submit">ይመዝገቡ</button>
+ 
+    </form>
+
+    <p class="message" id="success-message">ተመዝገበዋል</p>
+</main>
+
+<footer>
+    <p>© 2025 AbeneTech | ይተኮርዎታል በ <a href="#">ዩቱዩብ</a> እና <a href="#">ቲክ ቶክ</a></p>
+</footer>
+
+<script>
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const successMessage = document.getElementById('success-message');
+        successMessage.style.display = "block";
+        successMessage.textContent = "✅ ተመዝገበዋል!";
+        
+        setTimeout(() => {
+            window.location.href = "register.html";
+        }, 2000);
+    });
+   
+</script>
+
+</body>
+</html>
